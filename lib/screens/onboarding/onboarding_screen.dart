@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
 
 import 'components/animated_btn.dart';
+import 'components/custom_sign_in_dialog.dart';
+
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -12,6 +14,7 @@ class OnboardingScreen extends StatefulWidget {
 }
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
+  bool isSignInDialogShown = false;
   late RiveAnimationController _btnAnimationController;
 
   @override
@@ -63,47 +66,66 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             ),
           ),
           // TEXT
-          SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 36),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Spacer(flex: 3),
-                  SizedBox(
-                    child: Column(
-                      children: const [
-                        Text(
-                          "Flutter & Rive",
-                          style: TextStyle(
-                            fontSize: 60,
-                            fontFamily: "Poppins",
-                            height: 1.2,
+          AnimatedPositioned(
+            duration: const Duration(milliseconds: 400),
+            height: MediaQuery.of(context).size.height,
+            top: isSignInDialogShown ? -50 : 0,
+            width: MediaQuery.of(context).size.width,
+            child: SafeArea(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 36),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Spacer(flex: 3),
+                    SizedBox(
+                      child: Column(
+                        children: const [
+                          Text(
+                            "Flutter & Rive",
+                            style: TextStyle(
+                              fontSize: 60,
+                              fontFamily: "Poppins",
+                              height: 1.2,
+                            ),
                           ),
-                        ),
-                        SizedBox(height: 18),
-                        Text(
-                          "Une application faite avec le framework Flutter, la biliothèque d'animation Rive et beaucoup d'amour.",
-                          style: TextStyle(
-                            fontSize: 16,
+                          SizedBox(height: 18),
+                          Text(
+                            "Une application faite avec le framework Flutter, la biliothèque d'animation Rive et beaucoup d'amour.",
+                            style: TextStyle(
+                              fontSize: 16,
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                  const Spacer(flex: 3),
-                  AnimatedBtn(
-                    btnAnimationController: _btnAnimationController,
-                    press: () {
-                      _btnAnimationController.isActive = true;
-                    },
-                  ),
-                  // const Padding(
-                  //   padding: EdgeInsets.symmetric(vertical: 24),
-                  //   child: Text("Développée avec Flutter et Rive"),
-                  // )
-                  const Spacer(flex: 2),
-                ],
+                    const Spacer(flex: 3),
+                    AnimatedBtn(
+                      btnAnimationController: _btnAnimationController,
+                      press: () {
+                        _btnAnimationController.isActive = true;
+                        Future.delayed(const Duration(milliseconds: 800), () {
+                          setState(() {
+                            isSignInDialogShown = true; // Moves text up
+                          });
+                          customSignInDialog(
+                            context,
+                            onClosed: (_) {
+                              setState(() {
+                                isSignInDialogShown = false; // Moves text down
+                              });
+                            },
+                          ); // Open sign-in dialog
+                        });
+                      },
+                    ),
+                    // const Padding(
+                    //   padding: EdgeInsets.symmetric(vertical: 24),
+                    //   child: Text("Développée avec Flutter et Rive"),
+                    // )
+                    const Spacer(flex: 2),
+                  ],
+                ),
               ),
             ),
           ),
