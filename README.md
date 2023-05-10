@@ -1,6 +1,6 @@
 # 𝐅𝐥𝐮𝐭𝐭𝐞𝐫 & 𝐑𝐢𝐯𝐞
 
-⚙️ Développée avec 𝐅𝐥𝐮𝐭𝐭𝐞𝐫.
+⚙️ Développée avec 𝐅𝐥𝐮𝐭𝐭𝐞𝐫 et la bibliothèque d'animations 𝐑𝐢𝐯𝐞.
 
 👉 Contributeurs : Nicolas Lépinay.
 
