@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: const Color(0xFFEEF1F8),
         primarySwatch: Colors.blue,
-        fontFamily: "Intel",
+        fontFamily: "Inter",
         inputDecorationTheme: const InputDecorationTheme(
           filled: true,
           fillColor: Colors.white,
