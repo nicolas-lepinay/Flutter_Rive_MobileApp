@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:rive_animation/screens/entry_point.dart';
 import 'package:rive_animation/screens/onboarding/onboarding_screen.dart';
+
+import 'components/side_menu.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,7 +30,8 @@ class MyApp extends StatelessWidget {
           errorBorder: defaultInputBorder,
         ),
       ),
-      home: const OnboardingScreen(),
+      //home: const OnboardingScreen(),
+      home: const EntryPoint(),
     );
   }
 }
