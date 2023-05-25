@@ -11,3 +11,6 @@
 
 
 ![Rive_002_v5 gif](https://github.com/nicolas-lepinay/Flutter_Rive_MobileApp/assets/87578863/ccbe910f-2780-4bbf-b56a-bd9113cadd61)
+
+
+![Rive_003 gif](https://github.com/nicolas-lepinay/Flutter_Rive_MobileApp/assets/87578863/82b74ea6-627c-42ee-9ae6-bbab5c4eadea)
